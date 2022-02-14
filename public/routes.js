@@ -88,8 +88,6 @@ app.config(function($routeProvider) {
       }
     })
     .when('/logout', {
-      controller: 'logoutCtrl',
-      controllerAs: 'vm',
       template: '<logout></logout>'
     })
     .otherwise('/home')
