@@ -1,13 +1,9 @@
-angular.module('app').directive('sessionDetail', function() {
-  return {
+angular.module('app').component('sessionDetail', {
     templateUrl: '/sessions/sessionDetail.html',
-    scope: {
+    bindings: {
       session: '=',
       initialCollapsed: '@'
     },
-    bindToController: true,
-    controllerAs: 'vm',
     controller: function() {
     }
-  }
 })
