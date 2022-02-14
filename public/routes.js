@@ -50,18 +50,14 @@ app.config(function($routeProvider) {
       }
     })
     .when('/users', {
-      controller: 'userListCtrl',
-      templateUrl: 'admin/userlist.html',
-      controllerAs: 'vm',
+      template: '<user-list all-users="$resolve.allUsers"></user-list>',
       resolve: {
         admin: routeResolvers.requireAdmin,
         allUsers: routeResolvers.allUsers
       }
     })
     .when('/admin/createusers', {
-      controller: 'createUsersCtrl',
-      templateUrl: 'admin/createUsers.html',
-      controllerAs: 'vm',
+      template: '<create-users></create-users>',
       resolve:  {
         admin: routeResolvers.requireAdmin
       }
@@ -74,9 +70,7 @@ app.config(function($routeProvider) {
       }
     })
     .when('/profile', {
-      controller: 'profileCtrl',
-      templateUrl: 'profile/profile.html',
-      controllerAs: 'vm',
+      template: '<profile></profile>',
       resolve: {
         userProfile: routeResolvers.loggedIn,
       }
