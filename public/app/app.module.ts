@@ -8,6 +8,7 @@ import { NameParserService } from './admin/nameParser.service';
 import { AppComponent } from './app.component';
 import { TalkDurationPipe } from './common/talkDuration.pipe';
 import { UnreviewedTalkComponent } from './home/unreviewedTalk.component';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -18,7 +19,8 @@ import { UnreviewedTalkComponent } from './home/unreviewedTalk.component';
     declarations: [
         AppComponent,
         UnreviewedTalkComponent,
-        TalkDurationPipe
+        TalkDurationPipe,
+        ProfileComponent
     ],
     providers: [
         NameParserService
@@ -27,7 +29,8 @@ import { UnreviewedTalkComponent } from './home/unreviewedTalk.component';
         AppComponent
     ],
     entryComponents: [
-        UnreviewedTalkComponent
+        UnreviewedTalkComponent,
+        ProfileComponent
     ]
 })
 export class AppModule {
