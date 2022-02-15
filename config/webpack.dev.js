@@ -7,7 +7,8 @@ const ENV = (process.env.NODE_ENV = process.env.ENV = 'development');
 
 module.exports = {
   entry: {
-    ng1: './public/index.ts',
+    'ng1': './public/index.ts',
+    'app': './public/main.ts'
   },
   output: {
     path: helpers.root('dist/dev'),
@@ -48,6 +49,11 @@ module.exports = {
         'process.env': {
             'ENV': JSON.stringify(ENV)
         }
-    })
+    }),
+    new webpack.ContextReplacementPlugin(
+      /angular(\\|\/)core(\\|\/)@angular/,
+      helpers.root('./src'),
+      {}
+    )
   ],
 };
