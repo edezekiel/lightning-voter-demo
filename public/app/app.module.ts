@@ -6,6 +6,7 @@ import { UpgradeModule } from '@angular/upgrade/static';
 import { NameParserService } from './admin/nameParser.service';
 
 import { AppComponent } from './app.component';
+import { TalkDurationPipe } from './common/talkDuration.pipe';
 import { UnreviewedTalkComponent } from './home/unreviewedTalk.component';
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import { UnreviewedTalkComponent } from './home/unreviewedTalk.component';
     ],
     declarations: [
         AppComponent,
-        UnreviewedTalkComponent
+        UnreviewedTalkComponent,
+        TalkDurationPipe
     ],
     providers: [
         NameParserService
