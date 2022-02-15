@@ -20,6 +20,9 @@ function getLocation(injector) {
   return injector.get('$location');
 }
 
+function getCurrentIdentity(injector) {
+  return injector.get('currentIdentity');
+}
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpModule, UpgradeModule],
   declarations: [
@@ -31,6 +34,11 @@ function getLocation(injector) {
   providers: [
     NameParserService,
     { provide: '$location', useFactory: getLocation, deps: ['$injector'] },
+    {
+      provide: 'currentIdentity',
+      useFactory: getCurrentIdentity,
+      deps: ['$injector'],
+    },
   ],
   bootstrap: [AppComponent],
   entryComponents: [UnreviewedTalkComponent, ProfileComponent],
