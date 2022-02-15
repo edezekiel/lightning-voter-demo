@@ -1,7 +1,3 @@
-import "./vendor/jquery.min";
-import ".vendor/1.6.3/angular.min";
-import ".vendor/1.6.3/angular-route.min";
-import ".vendor/toastr.min";
 import "./toastr/toastr";
 import "./app";
 import "./routes";
