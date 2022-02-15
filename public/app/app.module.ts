@@ -16,34 +16,23 @@ import { ProfileComponent } from './profile/profile.component';
     Calls the get function on that injector and asks to get back
     the $location service from the AngularJS dependency container
 */
-function getLocation(injector) { return injector.get('$location'); }
+function getLocation(injector) {
+  return injector.get('$location');
+}
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpModule,
-        UpgradeModule
-    ],
-    declarations: [
-        AppComponent,
-        UnreviewedTalkComponent,
-        TalkDurationPipe,
-        ProfileComponent
-    ],
-    providers: [
-        NameParserService,
-        { provide: '$location', useFactory: getLocation, deps: ['$injector']
-        }
-    ],
-    bootstrap: [
-        AppComponent
-    ],
-    entryComponents: [
-        UnreviewedTalkComponent,
-        ProfileComponent
-    ]
+  imports: [BrowserModule, FormsModule, HttpModule, UpgradeModule],
+  declarations: [
+    AppComponent,
+    UnreviewedTalkComponent,
+    TalkDurationPipe,
+    ProfileComponent,
+  ],
+  providers: [
+    NameParserService,
+    { provide: '$location', useFactory: getLocation, deps: ['$injector'] },
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [UnreviewedTalkComponent, ProfileComponent],
 })
-export class AppModule {
-
-}
+export class AppModule {}
