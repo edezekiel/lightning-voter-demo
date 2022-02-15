@@ -1,18 +1,19 @@
-angular.module('app').component('unreviewedTalk', {
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+@Component({
+  selector: 'unreviewed-talk',
   templateUrl: './unreviewedTalk.html',
-  bindings: {
-    session: '=',
-    voteYes: '&',
-    voteNo: '&'
-  },
-  controller: function() {
-    
-    this.yes = function() {
-      this.voteYes();
-    }
-    
-    this.no = function() {
-      this.voteNo();
-    }
-  }
 })
+export class UnreviewedTalkComponent {
+  @Input() session: any;
+  @Output() voteYes = new EventEmitter();
+  @Output() voteNo = new EventEmitter();
+
+  yes() {
+    this.voteYes.emit(null);
+  }
+
+  no() {
+    this.voteNo.emit(null);
+  }
+}
