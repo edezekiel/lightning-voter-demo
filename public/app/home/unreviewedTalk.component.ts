@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'unreviewed-talk',
-  templateUrl: './unreviewedTalk.html',
+  templateUrl: './unreviewedTalk.component.html',
 })
 export class UnreviewedTalkComponent {
   @Input() session: any;
