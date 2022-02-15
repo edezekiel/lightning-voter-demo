@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { TalkDurationPipe } from './common/talkDuration.pipe';
 import { UnreviewedTalkComponent } from './home/unreviewedTalk.component';
 import { ProfileComponent } from './profile/profile.component';
+import { TOASTR_TOKEN } from './toastr/toastr.service';
 
 /*
     @param injector is the AngularJS dependency injector
@@ -16,13 +17,18 @@ import { ProfileComponent } from './profile/profile.component';
     Calls the get function on that injector and asks to get back
     the $location service from the AngularJS dependency container
 */
-function getLocation(injector) {
-  return injector.get('$location');
+function getLocation(i) {
+  return i.get('$location');
 }
 
-function getCurrentIdentity(injector) {
-  return injector.get('currentIdentity');
+function getCurrentIdentity(i) {
+  return i.get('currentIdentity');
 }
+
+function getToastr() {
+  return toastr;
+}
+
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpModule, UpgradeModule],
   declarations: [
@@ -39,6 +45,7 @@ function getCurrentIdentity(injector) {
       useFactory: getCurrentIdentity,
       deps: ['$injector'],
     },
+    { provide: TOASTR_TOKEN, useFactory: getToastr },
   ],
   bootstrap: [AppComponent],
   entryComponents: [UnreviewedTalkComponent, ProfileComponent],
