@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 // controller: function)
 
@@ -7,11 +7,14 @@ import { Component } from '@angular/core';
   templateUrl: './profile.component.html',
 })
 export class ProfileComponent {
-  // currentIdentity;
-  // $location;
   currentIdentity;
 
-  constructor(/*$location, toastr, currentIdentity*/) {
+  /* 
+    By passing in the '$location' token Angular will look up 
+    the dependency registered with that token and give it back
+    to us in that private $location property
+  */
+  constructor(@Inject('$location') private $location/*toastr*/) {
     // this.profile = angular.copy(currentIdentity.currentUser);
     this.currentIdentity = {
       currentUser: { firstName: 'joe', lastName: 'eames' },
@@ -24,6 +27,6 @@ export class ProfileComponent {
   }
 
   cancel() {
-    // this.$location.path('/home');
+    this.$location.path('/home');
   }
 }
