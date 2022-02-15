@@ -4,11 +4,14 @@ const helpers = require('./helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ENV = (process.env.NODE_ENV = process.env.ENV = 'development');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
-    'ng1': './public/index.ts',
-    'app': './public/main.ts'
+    polyfills: './public/polyfills.ts',
+    vendor: './public/vendor.ts',
+    ng1: './public/index.ts',
+    app: './public/main.ts',
   },
   output: {
     path: helpers.root('dist/dev'),
@@ -36,6 +39,11 @@ module.exports = {
       name: 'common',
       minChunks: Infinity,
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      chunks: ['vendor', 'app'],
+      minChunks: 2,
+    }),
     new webpack.SourceMapDevToolPlugin({
       filename: '[file].map[query]',
       moduleFilenameTemplate: '[resource-path]',
@@ -43,17 +51,21 @@ module.exports = {
       sourceRoot: 'webpack:///',
     }),
     new HtmlWebpackPlugin({
-        template: 'config/index.html'
+      template: 'config/index.html',
+      chunks: ['app']
     }),
     new webpack.DefinePlugin({
-        'process.env': {
-            'ENV': JSON.stringify(ENV)
-        }
+      'process.env': {
+        ENV: JSON.stringify(ENV),
+      },
     }),
     new webpack.ContextReplacementPlugin(
       /angular(\\|\/)core(\\|\/)@angular/,
       helpers.root('./src'),
       {}
-    )
+    ),
+    // new BundleAnalyzerPlugin({
+    //   analyzerMode: 'static',
+    // }),
   ],
 };

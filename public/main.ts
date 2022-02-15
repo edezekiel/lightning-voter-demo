@@ -1,8 +1,4 @@
-import 'core-js/es7/reflect';
-import 'core-js/client/shim';
-import 'zone.js/dist/zone';
 import { UpgradeModule } from '@angular/upgrade/static';
-
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 
