@@ -11,4 +11,11 @@ export class SessionsService {
       .map((rsp: Response) => rsp.json())
       .toPromise();
   }
+
+  getAllSessions() {
+    return this.http
+      .get('/api/sessions')
+      .map((rsp: Response) => rsp.json())
+      .toPromise();
+  }
 }

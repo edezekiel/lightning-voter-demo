@@ -7,17 +7,6 @@ angular.module('app').service('sessions', class Sessions {
     this.$q = $q;
   }
   
-  getAllSessions() {
-    var dfd = this.$q.defer();
-    
-    this.$http.get('/api/sessions').then(function(response) {
-      dfd.resolve(response.data);
-    }, function() {
-      dfd.reject();
-    });
-    return dfd.promise;
-  }
-  
   createNewSession(newSession) {
     return this.$http.post('/api/sessions', newSession);
   }
