@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
 import { NameParserService } from './admin/nameParser.service';
+import { ResultsComponent } from './admin/results.component';
 
 import { AppComponent } from './app.component';
 import { DetailPanelComponent } from './common/detailPanel.component';
@@ -11,6 +12,7 @@ import { TalkDurationPipe } from './common/talkDuration.pipe';
 import { UnreviewedTalkComponent } from './home/unreviewedTalk.component';
 import { NavComponent } from './nav/nav.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SessionDetailWithVotesComponent } from './sessions/sessionDetailWithVotes.component';
 import { SessionsService } from './sessions/sessions.service';
 import { TOASTR_TOKEN } from './toastr/toastr.service';
 
@@ -41,6 +43,8 @@ export function getToastr() {
     ProfileComponent,
     NavComponent,
     DetailPanelComponent,
+    ResultsComponent,
+    SessionDetailWithVotesComponent,
   ],
   providers: [
     NameParserService,
@@ -58,6 +62,7 @@ export function getToastr() {
     UnreviewedTalkComponent,
     ProfileComponent,
     DetailPanelComponent,
+    ResultsComponent,
   ],
 })
 export class AppModule {}

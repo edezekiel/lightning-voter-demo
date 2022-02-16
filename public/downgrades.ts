@@ -7,6 +7,7 @@ import { UnreviewedTalkComponent } from './app/home/unreviewedTalk.component';
 import { ProfileComponent } from './app/profile/profile.component';
 import { SessionsService } from './app/sessions/sessions.service';
 import { DetailPanelComponent } from './app/common/detailPanel.component';
+import { ResultsComponent } from './app/admin/results.component';
 
 declare var angular: angular.IAngularStatic;
 
@@ -31,6 +32,12 @@ export function downgradeItems() {
       'detailPanel',
       downgradeComponent({
         component: DetailPanelComponent,
+      })
+    )
+    .directive(
+      'results',
+      downgradeComponent({
+        component: ResultsComponent,
       })
     );
 }
