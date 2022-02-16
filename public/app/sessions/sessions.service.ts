@@ -18,4 +18,37 @@ export class SessionsService {
       .map((rsp: Response) => rsp.json())
       .toPromise();
   }
+
+  createNewSession(newSession) {
+    return this.http
+      .post('/api/sessions', newSession)
+      .map((rsp: Response) => rsp.json())
+      .toPromise();
+  }
+
+  getNextUnreviewedSession(userId) {
+    return this.http
+      .get(`/api/users/${userId}/randomUnreviewedSession`)
+      .map((rsp: Response) => (rsp.text() === '' ? null : rsp.json()))
+      .toPromise();
+  }
+
+  addReviewedSession(userId, sessionId) {
+    return this.http
+      .post('/api/users/' + userId + '/reviewSession/' + sessionId, {})
+      .toPromise();
+  }
+
+  incrementVote(sessionId) {
+    return this.http
+      .put('/api/sessions/' + sessionId + '/incrementVote/', {})
+      .toPromise();
+  }
+
+  getUnreviewedCount(userId) {
+    return this.http
+      .get('/api/users/' + userId + '/unreviewedSessionCount')
+      .map((rsp: Response) => rsp.json())
+      .toPromise();
+  }
 }

@@ -3,23 +3,23 @@ angular.module('app').component('home', {
   bindings: {
     userSessions: '='
   },
-  controller: function(currentIdentity, sessions, 
+  controller: function(currentIdentity, sessions, sessionsService, 
     toastr, unreviewedSessionCount) {
       
     
     this.currentUser = currentIdentity.currentUser
     
     this.setNextSessionToReview = function() {
-      sessions.getNextUnreviewedSession(currentIdentity.currentUser.id).then((response) => {
-        this.currentSessionToReview = response.data;
+      sessionsService.getNextUnreviewedSession(currentIdentity.currentUser.id).then((data) => {
+        this.currentSessionToReview = data;
       })
     }
     this.setNextSessionToReview();
     
     
     this.voteYes = function() {
-      sessions.incrementVote(this.currentSessionToReview.id)
-      .then(() => sessions.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id))
+      sessionsService.incrementVote(this.currentSessionToReview.id)
+      .then(() => sessionsService.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id))
       .then(function() {
         this.setNextSessionToReview();
         
@@ -29,7 +29,7 @@ angular.module('app').component('home', {
     }
     
     this.voteNo = function() {
-      sessions.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id)
+      sessionsService.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id)
       .then(function() {
         this.setNextSessionToReview();
 
