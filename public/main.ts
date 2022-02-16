@@ -10,6 +10,7 @@ import { NameParserService } from './app/admin/nameParser.service';
 import { UnreviewedTalkComponent } from './app/home/unreviewedTalk.component';
 import { ProfileComponent } from './app/profile/profile.component';
 import { SessionsService } from './app/sessions/sessions.service';
+import { DetailPanelComponent } from './app/common/detailPanel.component';
 
 declare var angular: angular.IAngularStatic;
 
@@ -31,6 +32,12 @@ platformBrowserDynamic()
         'profile',
         downgradeComponent({
           component: ProfileComponent,
+        })
+      )
+      .directive(
+        'detailPanel',
+        downgradeComponent({
+          component: DetailPanelComponent,
         })
       );
 

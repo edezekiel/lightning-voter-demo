@@ -6,6 +6,7 @@ import { UpgradeModule } from '@angular/upgrade/static';
 import { NameParserService } from './admin/nameParser.service';
 
 import { AppComponent } from './app.component';
+import { DetailPanelComponent } from './common/detailPanel.component';
 import { TalkDurationPipe } from './common/talkDuration.pipe';
 import { UnreviewedTalkComponent } from './home/unreviewedTalk.component';
 import { NavComponent } from './nav/nav.component';
@@ -39,6 +40,7 @@ function getToastr() {
     TalkDurationPipe,
     ProfileComponent,
     NavComponent,
+    DetailPanelComponent,
   ],
   providers: [
     NameParserService,
@@ -52,6 +54,10 @@ function getToastr() {
     SessionsService,
   ],
   bootstrap: [AppComponent],
-  entryComponents: [UnreviewedTalkComponent, ProfileComponent],
+  entryComponents: [
+    UnreviewedTalkComponent,
+    ProfileComponent,
+    DetailPanelComponent,
+  ],
 })
 export class AppModule {}
