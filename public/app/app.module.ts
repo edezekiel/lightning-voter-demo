@@ -10,6 +10,7 @@ import { TalkDurationPipe } from './common/talkDuration.pipe';
 import { UnreviewedTalkComponent } from './home/unreviewedTalk.component';
 import { NavComponent } from './nav/nav.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SessionsService } from './sessions/sessions.service';
 import { TOASTR_TOKEN } from './toastr/toastr.service';
 
 /*
@@ -48,6 +49,7 @@ function getToastr() {
       deps: ['$injector'],
     },
     { provide: TOASTR_TOKEN, useFactory: getToastr },
+    SessionsService,
   ],
   bootstrap: [AppComponent],
   entryComponents: [UnreviewedTalkComponent, ProfileComponent],
