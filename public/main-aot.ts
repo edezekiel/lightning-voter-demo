@@ -1,4 +1,5 @@
 import { platformBrowser } from '@angular/platform-browser';
+import { enableProdMode } from '@angular/core';
 import {
   downgradeComponent,
   downgradeInjectable,
@@ -14,7 +15,8 @@ import { DetailPanelComponent } from './app/common/detailPanel.component';
 import { AppModuleNgFactory } from '../aot/public/app/app.module.ngfactory';
 
 declare var angular: angular.IAngularStatic;
-
+// Causes change detection cycle to only run once
+enableProdMode();
 // At runtime we'll bootstap the module factory. Not the uncompiled AppModule.
 platformBrowser()
   .bootstrapModuleFactory(AppModuleNgFactory)
