@@ -2,3 +2,4 @@ node_modules
 /public/**/*.map
 /public/**/*.js
 /dist/*
+/aot/*

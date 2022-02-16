@@ -20,15 +20,15 @@ import { TOASTR_TOKEN } from './toastr/toastr.service';
     Calls the get function on that injector and asks to get back
     the $location service from the AngularJS dependency container
 */
-function getLocation(i) {
+export function getLocation(i) {
   return i.get('$location');
 }
 
-function getCurrentIdentity(i) {
+export function getCurrentIdentity(i) {
   return i.get('currentIdentity');
 }
 
-function getToastr() {
+export function getToastr() {
   return toastr;
 }
 
