@@ -10,9 +10,9 @@ angular.module('app').config(function($routeProvider) {
     requireAdmin: function(auth) {
       return auth.requireAdmin();
     },
-    userSessions: function(sessions, currentIdentity, auth) {
+    userSessions: function(sessionsService, currentIdentity, auth) {
       return auth.requireLogin().then(function() {
-        return sessions.getSessionsByUser(currentIdentity.currentUser.id);
+        return sessionsService.getSessionsByUser(currentIdentity.currentUser.id);
       });
     },
     allSessions: function(sessions, auth) {

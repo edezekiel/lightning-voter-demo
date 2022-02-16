@@ -6,17 +6,6 @@ angular.module('app').service('sessions', class Sessions {
     this.$http = $http;
     this.$q = $q;
   }
-
-  getSessionsByUser(userId) {
-    var dfd = this.$q.defer();
-    
-    this.$http.get('/api/sessions/user/' + userId).then(function(response) {
-      dfd.resolve(response.data);
-    }, function() {
-      dfd.reject();
-    });
-    return dfd.promise;
-  }
   
   getAllSessions() {
     var dfd = this.$q.defer();
