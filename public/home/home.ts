@@ -3,7 +3,7 @@ angular.module('app').component('home', {
   bindings: {
     userSessions: '='
   },
-  controller: function(currentIdentity, sessions, sessionsService, 
+  controller: function(currentIdentity, sessionsService, 
     toastr, unreviewedSessionCount) {
       
     
