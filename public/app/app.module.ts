@@ -8,6 +8,7 @@ import { NameParserService } from './admin/nameParser.service';
 import { AppComponent } from './app.component';
 import { TalkDurationPipe } from './common/talkDuration.pipe';
 import { UnreviewedTalkComponent } from './home/unreviewedTalk.component';
+import { NavComponent } from './nav/nav.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TOASTR_TOKEN } from './toastr/toastr.service';
 
@@ -36,6 +37,7 @@ function getToastr() {
     UnreviewedTalkComponent,
     TalkDurationPipe,
     ProfileComponent,
+    NavComponent,
   ],
   providers: [
     NameParserService,
