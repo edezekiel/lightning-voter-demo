@@ -16,7 +16,6 @@ export class SessionsService {
     return this.http
       .get('/api/sessions')
       .map((rsp: Response) => rsp.json())
-      .toPromise();
   }
 
   createNewSession(newSession) {

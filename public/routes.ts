@@ -15,11 +15,6 @@ angular.module('app').config(function($routeProvider) {
         return sessionsService.getSessionsByUser(currentIdentity.currentUser.id);
       });
     },
-    allSessions: function(sessionsService, auth) {
-      return auth.requireLogin().then(function() {
-        return sessionsService.getAllSessions();
-      });
-    },
     allUsers: function(users, auth) {
       return auth.requireLogin().then(function() {
         return users.getAllUsers();
@@ -33,13 +28,6 @@ angular.module('app').config(function($routeProvider) {
       template: '<admin-login></admin-login>',
       resolve: {
         currentAuth: routeResolvers.waitForAuth
-      }
-    })
-    .when('/admin/results', {
-      template: '<results [all-sessions]="$resolve.allSessions"></results>',
-      resolve: {
-        admin: routeResolvers.requireAdmin,
-        allSessions: routeResolvers.allSessions
       }
     })
     .when('/admin/users/:id', {
@@ -90,5 +78,7 @@ angular.module('app').config(function($routeProvider) {
     .when('/logout', {
       template: '<logout></logout>'
     })
-    .otherwise('/home')
-})
+    .when('/', {
+      redirectTo: 'home'
+    })
+  })
