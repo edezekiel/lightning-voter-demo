@@ -18,6 +18,14 @@ Cypress.Commands.add('login', (email, password) => {
  })
 //
 //
+
+Cypress.Commands.add('createSession', (title, length, description) => {
+    cy.visit('http://localhost:8801/#/createsession')
+    cy.get('form > div > input[type="text"]').type(title)
+    cy.get('form > div > input[type="number"]').type(length)
+    cy.get('form > div > textarea').type(description)
+    cy.get('.btn').click()
+})
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
