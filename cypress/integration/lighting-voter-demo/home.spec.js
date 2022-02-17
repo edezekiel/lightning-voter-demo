@@ -10,7 +10,7 @@ describe('lightning-voter-demo app home', () => {
     })
     
     it('should have the correct page title', () => {
-        cy.visit('http://localhost:8801/#/home')
+        cy.visit('/home')
         cy.get('h2').should('contain', 'Unreviewed Sessions')
     })
   })

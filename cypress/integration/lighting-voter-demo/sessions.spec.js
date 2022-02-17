@@ -6,11 +6,15 @@ describe('lightning-voter-demo app create session', () => {
     // so we must tell it to visit our website with the `cy.visit()` command.
     // Since we want to visit the same URL at the start of all our tests,
     // we include it in our beforeEach function so that it runs before each test
-    cy.login('joe@joe.com', 'pass')
-    cy.createSession("Tyler's old session", 30, 'come see me make an ass of myself at Cypress')
-  })
-  
+    cy.login('joe@joe.com', 'pass');
+  });
+
   it('should create a session and contain the appropriate title', () => {
-      cy.get('.panel-heading').should('contain', "Tyler's old session")
-  })
-})
+    cy.createSession(
+      "Tyler's old session",
+      30,
+      'come see me make an ass of myself at Cypress'
+    );
+    cy.get('.panel-heading').should('contain', "Tyler's old session");
+  });
+});
