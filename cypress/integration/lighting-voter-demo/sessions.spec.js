@@ -2,11 +2,8 @@
 
 describe('lightning-voter-demo app create session', () => {
   beforeEach(() => {
-    // Cypress starts out with a blank slate for each test
-    // so we must tell it to visit our website with the `cy.visit()` command.
-    // Since we want to visit the same URL at the start of all our tests,
-    // we include it in our beforeEach function so that it runs before each test
-    cy.login('joe@joe.com', 'pass');
+    cy.waitForAuth(Cypress.env('username'), Cypress.env('password'));
+    cy.visit('/createsession');
   });
 
   it('should create a session and contain the appropriate title', () => {

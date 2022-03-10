@@ -1,0 +1,11 @@
+{
+  "success":true,
+  "user":{
+     "id":1,
+     "email":"joe@joe.com",
+     "password":"pass",
+     "firstName":"Joe",
+     "lastName":"Eames",
+     "isAdmin":true
+  }
+}
