@@ -2,6 +2,6 @@
 
 describe('view profile', () => {
   beforeEach(() => {
-    cy.login('joe@joe.com', 'pass')
+    cy.login(Cypress.env('username'), Cypress.env('password'))
   })
 })

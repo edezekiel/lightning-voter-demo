@@ -1,3 +1,7 @@
 {
-  "baseUrl": "http://localhost:8801/#"
+  "baseUrl": "http://localhost:8801/#",
+  "env": {
+    "username": "joe@joe.com",
+    "password": "pass"
+  }
 }

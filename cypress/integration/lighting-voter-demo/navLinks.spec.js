@@ -2,11 +2,11 @@
 
 describe('routing links', () => {
     beforeEach(() => {
-
-        cy.login('joe@joe.com', 'pass')
+        cy.waitForAuth(Cypress.env('username'), Cypress.env('password'))
+        cy.visit('/');
     })
 
-    xit('should receive a successful 200 resp when requesting each link', () => {
+    it('should receive a successful 200 resp when requesting each link', () => {
 
         cy.get('[class="nav navbar-nav"]').find('a').each( link => {
             cy.request(link.prop('href')).then( response => {
@@ -30,12 +30,12 @@ describe('routing links', () => {
         })
     })
 
-    xit('should show home page when user clicks Home nav link', () => {
+    it('should show home page when user clicks Home nav link', () => {
       cy.get('[class="nav navbar-nav"]').find('a').contains('Home').click()
       cy.get('h2').should('contain', 'Unreviewed Sessions')
     });
 
-    xit('should show profile page when user clicks Profile nav link', () => {
+    it('should show profile page when user clicks Profile nav link', () => {
       cy.get('[class="nav navbar-nav"]').find('a').contains('Profile').click()
       cy.get('#firstName').should('have.value', 'Joe')
       cy.get('#lastName').should('have.value', 'Eames')
