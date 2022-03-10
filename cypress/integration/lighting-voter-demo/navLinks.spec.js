@@ -41,16 +41,14 @@ describe('routing links', () => {
       cy.get('#lastName').should('have.value', 'Eames')
     });
 
-    xit('should show results page when user clicks Results nav link', () => {
-      cy.get('[class="nav navbar-nav"]').find('a').contains('Results').click()
+    it('should show results page when user clicks Results nav link', () => {
+      cy.get('[class="nav navbar-nav"]').find('a').contains(/^Results$/).click()
         cy.get('h1').should('contain', 'Results')
     });
 
-    // it('should show users page when user clicks Users nav link', () => {
-    //   const userRegex = /^User$/;
-    //   // .should('have.text', 'Users').
-    //     console.log(cy.get('[class="nav navbar-nav"]').find('a'))
-    //     cy.get('[class="nav navbar-nav"]').find('a').contains('Users').not('[ng-show="vm.currentUser.isAdmin"]').click()
-    //     cy.get('h1').should('contain', 'User List')
-    // });
+    it('should show users page when user clicks Users nav link', () => {
+        const userRegex = /^Users$/;
+        cy.get('[class="nav navbar-nav"]').find('a').contains(userRegex).click()
+        cy.get('h1').should('contain', 'User List')
+    });
 })
