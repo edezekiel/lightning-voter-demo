@@ -8,10 +8,5 @@ describe('lightning-voter-demo app home', () => {
       // we include it in our beforeEach function so that it runs before each test
       cy.login('joe@joe.com', 'pass')
     })
-    
-    it('should have the correct page title', () => {
-        cy.visit('/home')
-        cy.get('h2').should('contain', 'Unreviewed Sessions')
-    })
   })
   
